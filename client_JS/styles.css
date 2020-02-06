@@ -1,0 +1,346 @@
+/* ---------- GLOBAL Styling ---------- */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.app {
+  --primaryColor: rgb(105, 185, 133);
+
+  min-height: 100%;
+}
+
+#page-wrapper {
+  position: relative;
+  padding-left: 7vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  width: 100vw;
+  background-image: linear-gradient(rgba(28, 29, 28), rgb(72, 77, 73));
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  font-family: proxima-nova, sans-serif;
+  color: white;
+  margin-top: 5rem;
+}
+
+input {
+  padding: 5px;
+}
+
+button {
+  padding: 5px;
+  font-size: 1.1rem;
+  font-family: proxima-nova, sans-serif;
+}
+
+h2 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.key {
+  font-weight: 600;
+  color: rgb(119, 180, 119);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* ---------- OVERLAY ---------- */
+
+#overlay {
+  position: absolute;
+  min-height: 100%;
+  width: 100vw;
+  transition: all 0.1s linear;
+  z-index: 1;
+  background-color: rgba(176, 236, 185, 0.452);
+}
+
+/* ---------- HEADER ---------- */
+
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: black;
+  color: white;
+  padding: 1.5rem 0 1.5rem 0;
+  width: 100vw;
+  height: 120px;
+  text-align: center;
+}
+
+#header h1 {
+  font-size: 4rem;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  min-height: 100%;
+  min-width: 6vw;
+  background: rgb(26, 25, 25);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sidebar:hover {
+  transition: all 0.1s linear;
+  background: #72c790;
+  min-width: 6vw;
+}
+
+#sidebar-icons {
+  margin-top: 10rem;
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+#sidebar-icons:hover {
+  cursor: pointer;
+  color: white;
+}
+
+#sidebar-icons i {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+#sidebar-icons i:hover {
+  transition: all 0.2s linear;
+  font-size: 1.9rem;
+  color: black;
+}
+
+/* ---------- SEARCH FORM ---------- */
+
+#form-wrapper {
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  width: 45%;
+  background: rgb(105, 185, 133);
+  margin-top: 12%;
+  padding-top: 1.5rem;
+}
+
+.hide-form {
+  transition: all 0.5s linear;
+  transform: translateX(-100vw);
+}
+
+.show-form {
+  transition: all 0.5s linear;
+  transform: translateX(-25vw);
+}
+
+#track-search-wrapper {
+  position: relative;
+  margin-top: 0;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+#search-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#form-area {
+  padding-left: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1rem;
+  column-gap: 2rem;
+}
+
+#submit-btn {
+  margin-top: 2rem;
+  display: inline-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background: rgb(39, 37, 37);
+  color: white;
+  width: 90%;
+}
+
+#submit-btn:hover {
+  cursor: pointer;
+  transition: all 0.1s linear;
+  background: rgb(194, 194, 182);
+  color: black;
+}
+
+.search-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+#close-form-area {
+  position: absolute;
+  right: 0;
+  top: -1.6rem;
+  padding: 0;
+}
+
+#close-form-btn {
+  font-size: 2.5rem;
+  padding: 0;
+}
+
+#close-form-area:hover {
+  cursor: pointer;
+  transition: all 0.1s linear;
+  color: black;
+}
+
+/* ---------- MAIN APP ---------- */
+
+#display-area {
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+/* ---------- INFO + PLAYER Section ---------- */
+
+#info-player-area {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  background-image: linear-gradient(rgb(60, 70, 61), #0e0b0b);
+  box-shadow: 0px 0px 5px 2px rgb(89, 155, 117);
+  border: 0.25px solid rgba(173, 168, 168, 0.904);
+  border-radius: 20px;
+  padding: 1rem 0;
+}
+
+/* ---------- Track Info Section ---------- */
+
+#track-info-wrapper {
+  margin-top: -1rem;
+  height: 100%;
+}
+
+#info-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+#info-area {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 40vw;
+}
+
+#info-area p {
+  padding-top: 1.5rem;
+}
+
+#info-area p:first-of-type {
+  padding-top: 0;
+}
+
+/* ---------- Audio Player Section ---------- */
+
+#player-area {
+  margin-top: 0;
+  height: 100%;
+  border-radius: 10px;
+  background-image: linear-gradient(rgb(41, 43, 41), #0e0b0b);
+}
+
+#player-area iframe {
+  border-radius: 10px;
+}
+
+/* ---------- CHART Section ---------- */
+
+#chart-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-header {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.chart-title {
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.chart-info-footnote {
+  font-size: 1rem;
+}
+
+/* ---------- GRID Section ---------- */
+
+#grid-sections-wrapper {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#grid-sections-area {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.section {
+  border: 0.25px solid black;
+  height: 80px;
+  background: #1db954;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+} /* ---------- FOOTER ---------- */
+
+#footer-wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}

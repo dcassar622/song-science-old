@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Song Science</title>
+    <link rel='stylesheet' href='styles.css'>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class='app'>
+      <div id="page-wrapper">
+        <!-- sidebar -->
+        <div class='sidebar'>
+          <div id="sidebar-icons" class="">
+            <a href='#header'><i id='sidebar-search' class="fas fa-search"></i></a>
+            <a href='#info-player-area'><i id='sidebar-info' class="fas fa-info"></i></a>
+            <a href='#chart-wrapper'><i id='sidebar-chart' class="fas fa-chart-bar"></i></a>
+            <a href='#grid-sections-wrapper'><i id='sidebar-grid' class="fas fa-th"></i></a>
+          </div>
+        </div>
+
+        <!-- header -->
+        <nav id='header'>
+          <h1><span class='key'>Song</span> Science</h1>
+        </nav>
+
+        <!-- search form --> 
+        <div id='form-wrapper' class='hide-form'>
+          <section id='track-search-wrapper' class='wrapper'>
+            <div id='search-area'>
+              <div id='form-area'>
+                <label for="track-name">Search By Track Name </label>
+                <input type="text" name='track-name' id='track-name'>
+                <label for="track-id">Search By Track ID </label>
+                <input type="text" name='track-id' id='track-id'>
+              </div>
+              <button id='submit-btn'>Search</button>
+            </div>
+            <div id='close-form-area'>
+              <i id='close-form-btn' class="fas fa-window-close"></i>
+            </div>
+          </section>
+        </div>
+
+        <!-- overlay -->
+        <div id='overlay' class='hidden'></div>
+        <!-- main app area-->
+        <div id='display-area'>
+
+          <!-- info + player area --> 
+          <div id='info-player-area' class='hidden'>
+            <!-- track info area-->
+            <section id='track-info-wrapper' class='wrapper'>
+            </section>
+            <!-- audio player -->
+            <section id='player-area'></section>
+    
+          </div>
+
+          <!-- chart area-->
+          <section id='chart-wrapper' class='wrapper'>
+            <div id='rms-chart-area'>
+              <div id='rms-chart-header'></div>
+              <canvas id="rms-chart" width="400" height="200"></canvas>
+            </div>
+            <div id='features-chart-area'>
+              <div id='features-chart-header'></div>
+              <canvas id="features-chart" width="400" height="200"></canvas>
+            </div>
+          </section>
+
+          <!-- track grid area -->
+          <section id='grid-sections-wrapper' class='wrapper'>
+            <div id='grid-sections-header'></div>
+              <div id='grid-sections-area'>
+               
+              </div>
+          </section>
+        <!-- footer section -->
+        <section id='footer-wrapper' class='wrapper'>
+          <h5>Website design by Daniel Cassar</h5>
+          <h6>Copyright Song Science 2020</h5>
+        </section>
+        
+        <a href="http://localhost:8888">
+          <button>Login With Spotify</button>
+        </a> 
+    </div>
+    <script src="./dist/main.js" type="module"></script>
+  </body>
+</html>
