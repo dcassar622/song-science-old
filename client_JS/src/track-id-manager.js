@@ -17,6 +17,7 @@ export class TrackIDManager {
   }
 }
 
+// get the song id from the song name provided by the user
 async function getIdFromName(spotify, name) {
   try {
     let data = await spotify.searchTracks(name);

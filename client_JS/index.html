@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Song Science</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel='stylesheet' href='styles.css'>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
@@ -16,7 +18,7 @@
         <!-- sidebar -->
         <div class='sidebar'>
           <div id="sidebar-icons" class="">
-            <a href='#header'><i id='sidebar-search' class="fas fa-search"></i></a>
+            <a href='#modal-search' data-toggle='modal'><i id='sidebar-search' class="fas fa-search"></i></a>
             <a href='#info-player-area'><i id='sidebar-info' class="fas fa-info"></i></a>
             <a href='#chart-wrapper'><i id='sidebar-chart' class="fas fa-chart-bar"></i></a>
             <a href='#grid-sections-wrapper'><i id='sidebar-grid' class="fas fa-th"></i></a>
@@ -25,40 +27,45 @@
 
         <!-- header -->
         <nav id='header'>
-          <h1><span class='key'>Song</span> Science</h1>
+          <h1><span class='logo-span'>Song</span> Science</h1>
         </nav>
 
         <!-- search form --> 
-        <div id='form-wrapper' class='hide-form'>
-          <section id='track-search-wrapper' class='wrapper'>
-            <div id='search-area'>
-              <div id='form-area'>
-                <label for="track-name">Search By Track Name </label>
-                <input type="text" name='track-name' id='track-name'>
-                <label for="track-id">Search By Track ID </label>
-                <input type="text" name='track-id' id='track-id'>
-              </div>
-              <button id='submit-btn'>Search</button>
-            </div>
-            <div id='close-form-area'>
-              <i id='close-form-btn' class="fas fa-window-close"></i>
-            </div>
-          </section>
+        <div id='modal-search' class='modal fade' role='dialog'>
+          <div class="modal-dialog modal-md">
+            <form id='search-form'>
+              <div class="modal-content form-horizontal">
+                <div class="modal-header">
+                  <h4 class="modal-title">Search Track</h4>
+                  <button type='button' class="close btn btn-sm" data-dismiss='modal'><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                  <label for="track-name">Search By Track Name </label>
+                  <input type="text" name='track-name' id='track-name'>
+                  <label for="track-id">Search By Track ID </label>
+                  <input type="text" name='track-id' id='track-id'>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-submit">Submit</button>
+                </div>
+             </div>
+            </form>
+          </div>
         </div>
 
-        <!-- overlay -->
-        <div id='overlay' class='hidden'></div>
         <!-- main app area-->
         <div id='display-area'>
 
           <!-- info + player area --> 
-          <div id='info-player-area' class='hidden'>
-            <!-- track info area-->
-            <section id='track-info-wrapper' class='wrapper'>
-            </section>
-            <!-- audio player -->
-            <section id='player-area'></section>
-    
+          <div id='track-data' class='wrapper hidden'>
+            <h2>Track Metadata</h2>
+            <div id='info-player-area'>
+              <!-- track info area-->
+              <section id='track-info-wrapper' >
+              </section>
+              <!-- audio player -->
+              <section id='player-area'></section>
+            </div>
           </div>
 
           <!-- chart area-->
@@ -76,9 +83,9 @@
           <!-- track grid area -->
           <section id='grid-sections-wrapper' class='wrapper'>
             <div id='grid-sections-header'></div>
-              <div id='grid-sections-area'>
-               
-              </div>
+            <div id='grid-sections-area'>
+              
+            </div>
           </section>
         <!-- footer section -->
         <section id='footer-wrapper' class='wrapper'>
@@ -90,6 +97,18 @@
           <button>Login With Spotify</button>
         </a> 
     </div>
+
+    <!-- BOOTSTRAP -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
     <script src="./dist/main.js" type="module"></script>
   </body>
 </html>

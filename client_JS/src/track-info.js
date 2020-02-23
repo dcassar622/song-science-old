@@ -24,10 +24,10 @@ export class TrackInfoComponent {
     let minutes = getDuration(trackInfo.duration_ms).minutes;
     let seconds = getDuration(trackInfo.duration_ms).seconds;
 
+    // displays track info in 'key-value' pair columns
     let displayArea = document.getElementById("track-info-wrapper");
     displayArea.innerHTML = `
     <div id='info-column'>
-    <h2>Track Metadata</h2>
       <div id='info-area'>
         <div>
           <p><span class='key'> Track name </span></p>

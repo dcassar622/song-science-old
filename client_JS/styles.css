@@ -9,27 +9,29 @@
 
 .app {
   --primaryColor: rgb(105, 185, 133);
-
-  min-height: 100%;
+  font-family: "Courier New", sans-serif;
+  min-height: 100vw;
 }
 
 #page-wrapper {
   position: relative;
-  padding-left: 7vw;
+  padding-left: 6vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100%;
-  width: 100vw;
+  max-width: 100vw;
   background-image: linear-gradient(rgba(28, 29, 28), rgb(72, 77, 73));
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
-  font-family: proxima-nova, sans-serif;
+  /*font-family: proxima-nova, sans-serif;*/
+
   color: white;
   margin-top: 5rem;
+  max-width: 100%;
 }
 
 input {
@@ -56,17 +58,6 @@ h2 {
   visibility: hidden;
 }
 
-/* ---------- OVERLAY ---------- */
-
-#overlay {
-  position: absolute;
-  min-height: 100%;
-  width: 100vw;
-  transition: all 0.1s linear;
-  z-index: 1;
-  background-color: rgba(176, 236, 185, 0.452);
-}
-
 /* ---------- HEADER ---------- */
 
 #header {
@@ -76,13 +67,19 @@ h2 {
   background: black;
   color: white;
   padding: 1.5rem 0 1.5rem 0;
-  width: 100vw;
-  height: 120px;
+  width: 94vw;
+  min-height: 120px;
   text-align: center;
 }
 
 #header h1 {
-  font-size: 4rem;
+  font-size: 3.75rem;
+  font-weight: 500;
+}
+
+.logo-span {
+  font-weight: 500;
+  color: rgb(119, 180, 119);
 }
 
 /* ---------- SIDEBAR ---------- */
@@ -93,12 +90,12 @@ h2 {
   z-index: 3;
   height: 100%;
   min-height: 100%;
-  min-width: 6vw;
+  width: 6vw;
   background: rgb(26, 25, 25);
-  color: white;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding: 1rem;
 }
 
 .sidebar:hover {
@@ -136,93 +133,29 @@ h2 {
 
 /* ---------- SEARCH FORM ---------- */
 
-#form-wrapper {
+#modal-search {
   position: absolute;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 2;
-  width: 45%;
-  background: rgb(105, 185, 133);
-  margin-top: 12%;
-  padding-top: 1.5rem;
+  top: 10%;
 }
 
-.hide-form {
-  transition: all 0.5s linear;
-  transform: translateX(-100vw);
+.modal-header {
+  background: var(--primaryColor);
+  color: white;
 }
 
-.show-form {
-  transition: all 0.5s linear;
-  transform: translateX(-25vw);
-}
-
-#track-search-wrapper {
-  position: relative;
-  margin-top: 0;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  padding-bottom: 10px;
-}
-
-#search-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-#form-area {
-  padding-left: 3rem;
+.modal-body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 1rem;
-  column-gap: 2rem;
+  row-gap: 10px;
 }
 
-#submit-btn {
-  margin-top: 2rem;
-  display: inline-flex;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-  background: rgb(39, 37, 37);
+.modal-footer {
+  background: var(--primaryColor);
+}
+
+.btn-submit {
+  background: orange;
   color: white;
-  width: 90%;
-}
-
-#submit-btn:hover {
-  cursor: pointer;
-  transition: all 0.1s linear;
-  background: rgb(194, 194, 182);
-  color: black;
-}
-
-.search-div {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-top: 1rem;
-}
-
-#close-form-area {
-  position: absolute;
-  right: 0;
-  top: -1.6rem;
-  padding: 0;
-}
-
-#close-form-btn {
-  font-size: 2.5rem;
-  padding: 0;
-}
-
-#close-form-area:hover {
-  cursor: pointer;
-  transition: all 0.1s linear;
-  color: black;
 }
 
 /* ---------- MAIN APP ---------- */
@@ -231,7 +164,7 @@ h2 {
   margin-top: 7rem;
   display: flex;
   flex-direction: column;
-  width: 90%;
+  max-width: 90%;
   height: 100%;
   border-radius: 20px;
 }
@@ -240,20 +173,28 @@ h2 {
 
 #info-player-area {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-evenly;
+}
+
+#track-data {
+  display: flex;
+  flex-direction: column;
   background-image: linear-gradient(rgb(60, 70, 61), #0e0b0b);
   box-shadow: 0px 0px 5px 2px rgb(89, 155, 117);
   border: 0.25px solid rgba(173, 168, 168, 0.904);
   border-radius: 20px;
-  padding: 1rem 0;
+}
+
+#track-data h2 {
+  text-align: center;
 }
 
 /* ---------- Track Info Section ---------- */
 
 #track-info-wrapper {
-  margin-top: -1rem;
   height: 100%;
+  max-width: 100%;
 }
 
 #info-column {
@@ -268,7 +209,6 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
   width: 40vw;
 }
 
@@ -283,14 +223,19 @@ h2 {
 /* ---------- Audio Player Section ---------- */
 
 #player-area {
-  margin-top: 0;
   height: 100%;
   border-radius: 10px;
-  background-image: linear-gradient(rgb(41, 43, 41), #0e0b0b);
+  width: ;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
 }
 
 #player-area iframe {
   border-radius: 10px;
+  max-width: 100%;
+  max-height: 300px;
 }
 
 /* ---------- CHART Section ---------- */
@@ -298,9 +243,22 @@ h2 {
 #chart-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+#rms-chart-area {
+  max-width: 100%;
+}
+
+#features-chart-area {
+  max-width: 100%;
 }
 
 .chart-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 5rem;
   margin-bottom: 3rem;
   font-size: 1.1rem;
@@ -310,6 +268,14 @@ h2 {
 .chart-title {
   font-size: 2rem;
   text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.chart-header p span {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  text-align: left;
+  color: gray;
 }
 
 .chart-info-footnote {
@@ -322,11 +288,13 @@ h2 {
   margin-top: 10rem;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 }
 
 #grid-sections-area {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
+  max-width: 100%;
 }
 
 .section {
@@ -337,10 +305,36 @@ h2 {
   justify-content: center;
   align-items: center;
   text-align: center;
-} /* ---------- FOOTER ---------- */
+}
+
+/* ---------- FOOTER ---------- */
 
 #footer-wrapper {
   color: white;
   display: flex;
   flex-direction: column;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Extra small devices (phones, 450px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #info-player-area {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  #player-area {
+    margin-top: 50px;
+    width: auto;
+  }
+
+  #grid-sections-area {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }

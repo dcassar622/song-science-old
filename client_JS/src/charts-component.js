@@ -34,11 +34,13 @@ export class ChartsComponent {
 
     let rmsChartHeader = document.getElementById("rms-chart-header");
     rmsChartHeader.innerHTML = `
-      <p class='chart-header'> 
-      <span class='chart-title'> Song Dynamics </span> <br><br>
-      - this chart shows the dynamic range of a song based on the varying RMS loudness throughout the track's progression, <br><br>
-      *** <span class="chart-info-footnote"> 0 is the largest possible value </span>
-      <p> 
+   
+      <div class='chart-header'> 
+        <p class='chart-title'> Song Dynamics </p>
+        <p>This chart shows the <b>dynamic range</b> of a song, based on the varying RMS loudness throughout the track's progression <p>
+        <p><br><span> (0 is the largest possible value) <span><br></p>
+      </div>
+    
     `;
     let ctx = document.getElementById("rms-chart").getContext("2d");
     new Chart(ctx, {

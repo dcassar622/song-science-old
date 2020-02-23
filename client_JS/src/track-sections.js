@@ -18,6 +18,7 @@ export class TrackSectionsComponent {
 
     let gridSectionsHeader = document.getElementById("grid-sections-header");
     console.log(gridSectionsHeader);
+    // sset the header/title for the sections/grid area of the app
     gridSectionsHeader.innerHTML = `
       <p class='chart-header'> 
       <span class='chart-title'> Track Sections </span> <br><br>
@@ -47,12 +48,14 @@ export class TrackSectionsComponent {
         sectionTimecode.innerHTML = `${minutesStart}:${secondsStart}<br> - <br>${minutesEnd}:${secondsEnd}`;
       }
 
+      // calculate the difference between the loudness of each section and the overall average loudness of the track
       let avgLoudnessDelta = Math.abs(section.loudness - loudnessAvg);
       if (avgLoudnessDelta > 5) {
         avgLoudnessDelta = 5;
       }
 
       newSection.className = "section";
+      // give each section a differently shaded background color depending on the loudness of that particular section
       newSection.style.backgroundColor = `rgb(${avgLoudnessDelta * 5},${255 -
         avgLoudnessDelta * 45},${avgLoudnessDelta * 10})`;
 
@@ -65,6 +68,7 @@ export class TrackSectionsComponent {
   }
 }
 
+// calculates the average loudness across all the sections in the track
 function getLoudnessAvg(array) {
   let total = 0;
 

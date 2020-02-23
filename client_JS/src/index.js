@@ -27,7 +27,7 @@ export function getHashParams() {
 
 /* ---------- PLAYER WIDGET ---------- */
 
-/* ---------- main logic (hardwired id for development) ---------- */
+/* ---------- main logic (hardwired id for development) ---------- 
 
 let trackId = "67vYdAAM3oGsEImCRfbtsF";
 
@@ -50,50 +50,16 @@ chartsComponent.setupCharts();
 let trackSectionsComponent = new TrackSectionsComponent(spotify, trackId);
 trackSectionsComponent.getSectionsData();
 
-/* ---------- main logic ---------- 
-let overlay = document.getElementById("overlay");
-let openSearchForm = document.getElementById("sidebar-search");
-let formArea = document.getElementById("form-wrapper");
-let submitIdBtn = document.getElementById("submit-btn");
-let closeFormBtn = document.getElementById("close-form-btn");
-let infoPlayerArea = document.getElementById("info-player-area");
-
-let formOpen = false;
-
-// if user presses search icon while form is closed
-openSearchForm.addEventListener("click", () => {
-  if (formOpen === false) {
-    overlay.className = "";
-    formArea.className = "show-form";
-    formOpen = true;
-  }
-  // if user presses search icon while form is open
-  else if (formOpen === true) {
-    overlay.className = "hidden";
-    formArea.className = "hide-form";
-    formOpen = false;
-  }
-});
-
-// if user presses 'close-form' button
-closeFormBtn.addEventListener("click", () => {
-  overlay.className = "hidden";
-  formArea.className = "hide-form";
-  formOpen = false;
-});
-
-// if user clicks anywhere on the window except the form area while the form is open
-overlay.addEventListener("click", e => {
-  if (formOpen === true && e.target !== "form-wrapper") {
-    console.log("In The Window");
-    overlay.className = "hidden";
-    formArea.className = "hide-form";
-    formOpen = false;
-  }
-});
+/* ---------- main logic ---------- */
+const formArea = document.getElementById("form-wrapper");
+const searchForm = document.getElementById("search-form");
+const trackDataArea = document.getElementById("track-data");
+const infoPlayerArea = document.getElementById("info-player-area");
 
 // get track data and display it
-submitIdBtn.addEventListener("click", () => {
+searchForm.addEventListener("submit", e => {
+  e.preventDefault();
+  trackDataArea.className = "wrapper";
   let trackIDManager = new TrackIDManager();
   let data = trackIDManager.getTrackId(spotify);
   data.then(function(trackId) {
@@ -119,4 +85,4 @@ function setupData(trackId) {
   //sets up and displays charts
   let chartsComponent = new ChartsComponent(spotify, trackId);
   chartsComponent.setupCharts();
-} */
+}
